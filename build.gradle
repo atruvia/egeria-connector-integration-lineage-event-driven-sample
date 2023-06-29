@@ -61,7 +61,7 @@ configurations.all {
 
 // TODO: Specify group, description, version of new code being built. The name is in settings.gradle
 group = 'org.odpi.egeria'
-version = '4.2-SNAPSHOT'
+version = '1.0-SNAPSHOT'
 description = 'Integration lineage connector'
 
 // TODO: Specify Dependency versions as variables
