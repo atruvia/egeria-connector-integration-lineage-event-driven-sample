@@ -43,7 +43,7 @@ public class MockLineageIntegratorContext extends LineageIntegratorContext {
     private Map<String, String> attributeGuidToParentGuid = new HashMap<>();
 
     public MockLineageIntegratorContext() {
-        super(null, null, null, null, null, null, null, null, null, null, null, false, null, null, null, null, null, null);
+        super(null, null, null, null, null, null, null, null, null, null, null, false, null, null, null, null, null, 0, null);
     }
 
     @Override
