@@ -104,23 +104,28 @@ public class LineageEventContentforSample {
                     methodName);
         }
         for (AssetBean outputAssetBean : outputAssetBeans) {
-            String qualifiedName = outputAssetBean.getQualifiedName();
-            if (qualifiedName == null || qualifiedName.length() == 0) {
+            String displayName = outputAssetBean.getQualifiedName();
+            if (displayName == null || displayName.length() == 0) {
                 throw new ConnectorCheckedException(LineageEventSampleConnectorErrorCode.INVALID_EVENT_INPUT_ASSET_HAS_NO_ID.getMessageDefinition(connectorName,
                         jsonString),
                         this.getClass().getName(),
                         methodName);
             }
+            String qualifiedName = null;
             if (topicNamespace != null && topicNamespace.length() != 0) {
-                qualifiedName = topicNamespace.concat(TOPIC_SEPARATOR).concat(qualifiedName);
+                qualifiedName = topicNamespace.concat(TOPIC_SEPARATOR).concat(displayName);
             }
-            String displayName = outputAssetBean.getName();
             List<SchemaBean> schemaBeans = outputAssetBean.getSchemas();
 
             List<EventTypeFromJSON> eventTypesFromJSON = new ArrayList<>();
             for (SchemaBean schemaBean : schemaBeans) {
                 String outputEventTypeDisplayName = schemaBean.getDisplayName();
-                String outputEventTypeQualifiedName = qualifiedName + SEPARATOR + outputEventTypeDisplayName;
+                String outputEventTypeQualifiedName;
+                if (qualifiedName == null) {
+                    outputEventTypeQualifiedName = outputEventTypeDisplayName;
+                } else {
+                    outputEventTypeQualifiedName = qualifiedName + SEPARATOR + outputEventTypeDisplayName;
+                }
                 List<Attribute> outputAttributes = getAttributes(schemaBean.getProperties(), null, outputEventTypeQualifiedName);
                 EventTypeFromJSON eventTypeFromJSON = new EventTypeFromJSON(outputEventTypeDisplayName, outputEventTypeQualifiedName, outputAttributes);
                 eventTypesFromJSON.add(eventTypeFromJSON);
