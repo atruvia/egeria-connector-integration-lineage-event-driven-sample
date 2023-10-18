@@ -43,7 +43,7 @@ public class LineageEventContentForSampleTest {
         assertEquals("SQL - select * from foo;", eventContent.getFormulaForInputAsset(inputAsset.getQualifiedName()));
         LineageEventContentforSample.AssetFromJSON outputAsset = outputAssets.get(0);
         assertEquals("KafkaTopic", outputAsset.getTypeName());
-        assertEquals("Kundendaten", outputAsset.getDisplayName());
+        assertEquals("vertriebskunde-services.agree-kundendaten", outputAsset.getDisplayName());
         assertEquals("repnest-etu.vertriebskunde-services.agree-kundendaten", outputAsset.getQualifiedName());
         LineageEventContentforSample.EventTypeFromJSON eventType = outputAsset.getEventTypes().get(0);
         assertEquals("Person", eventType.getTechnicalName());

@@ -53,7 +53,7 @@ public class SampleLineageEventProcessorTest {
         assertTrue(assetList != null);
         assertTrue(assetList.size() == 1);
         DataAssetElement outputDataAssetElement = assetList.get(0);
-        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("Kundendaten"));
+        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("vertriebskunde-services.agree-kundendaten"));
         assertTrue(outputDataAssetElement.getElementHeader().getGUID() != null);
 
         List<ProcessElement> processElementList = mockContext.getProcessesByName("1234567890", 0, 1000, new Date());
@@ -157,7 +157,7 @@ public class SampleLineageEventProcessorTest {
         assertTrue(assetList != null);
         assertTrue(assetList.size() == 1);
         outputDataAssetElement = assetList.get(0);
-        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("Kundendaten-2"));
+        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("vertriebskunde-services.agree-kundendaten"));
         assertTrue(outputDataAssetElement.getElementHeader().getGUID() != null);
 
 
@@ -190,7 +190,7 @@ public class SampleLineageEventProcessorTest {
         assertTrue(assetList != null);
         assertTrue(assetList.size() == 1);
         outputDataAssetElement = assetList.get(0);
-        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("Kundendaten-3"));
+        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("vertriebskunde-services.agree-kundendaten-3"));
         assertTrue(outputDataAssetElement.getElementHeader().getGUID() != null);
 
 
@@ -223,7 +223,7 @@ public class SampleLineageEventProcessorTest {
         assertTrue(assetList != null);
         assertTrue(assetList.size() == 1);
         outputDataAssetElement = assetList.get(0);
-        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("Kundendaten-3"));
+        assertTrue(outputDataAssetElement.getDataAssetProperties().getTechnicalName().equals("vertriebskunde-services.agree-kundendaten-3"));
         assertTrue(outputDataAssetElement.getElementHeader().getGUID() != null);
 
 

@@ -111,9 +111,11 @@ public class LineageEventContentforSample {
                         this.getClass().getName(),
                         methodName);
             }
-            String qualifiedName = null;
+            String qualifiedName;
             if (topicNamespace != null && topicNamespace.length() != 0) {
-                qualifiedName = topicNamespace.concat(TOPIC_SEPARATOR).concat(displayName);
+                qualifiedName = topicNamespace.concat(TOPIC_SEPARATOR).concat(outputAssetBean.getQualifiedName());
+            } else {
+                qualifiedName = outputAssetBean.getQualifiedName();
             }
             List<SchemaBean> schemaBeans = outputAssetBean.getSchemas();
 
